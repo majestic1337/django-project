@@ -1,0 +1,58 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Головна
+{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url("{% static 'main/img/IMG_0125.jpg' %}");
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; }
+
+
+        .features {
+            text-align: center;
+        }
+
+        .features h2 {
+
+            color: #3d1f00;
+            text-transform: uppercase;
+        }
+
+        .features p {
+
+            color: #3d1f00;
+            text-transform: uppercase;
+        }
+
+        .features a {
+
+            background-color: #723c19;
+            color: white;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .features a:hover {
+            background-color: #623415FF;
+        }
+    </style>
+
+    <div class="features">
+        <h2>Welcome to our candy shop!</h2>
+        <p>Here you can see our candy</p>
+        <a href="{% url 'catalog' %}" class="btn">Catalog</a>
+    </div>
+{% endblock %}

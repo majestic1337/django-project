@@ -1,0 +1,50 @@
+{% extends "main/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Logout
+{% endblock %}
+
+{% block content %}
+   <style>
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url("{% static 'main/img/IMG_0088.jpg' %}");
+
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .logged-out-text {
+            color: #442b18;
+            margin-bottom: 20px;
+        }
+
+        .features button {
+            background-color: #381e1e;
+            border: none;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .features a
+        {
+            text-decoration: none;
+            color: #eebdbd;
+        }
+
+    </style>
+
+    <div class="features">
+        <p class="logged-out-text">Logged out!</p>
+        <button><a href="{% url 'login' %}">Login Again</a></button>
+    </div>
+
+{% endblock %}

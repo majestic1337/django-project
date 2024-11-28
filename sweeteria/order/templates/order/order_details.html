@@ -1,0 +1,107 @@
+{% extends 'main/layout.html' %}
+
+{% block  title %}
+    Order
+{% endblock %}
+
+{% block content %}
+   <style>
+body {
+        background-color: #f5dede;
+        font-family: Arial, sans-serif;
+        color: #3d1f00;
+        margin: 20px;
+        font-size: 24px;
+    }
+
+    h1 {
+        color: #8b5a2b;
+    }
+
+    .detail-card {
+        display: flex;
+        border: 1px solid #a88f8f;
+        border-radius: 5px;
+        background-color: #ffcead;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .detail-card img {
+        width: 25%;
+        border-radius: 5px 0 0 5px;
+        margin-bottom: 10px;
+        height: 80%;
+    }
+
+    .details {
+        padding: 20px;
+        width: 75%;
+        background-color: #ffcead;
+        border-radius: 0 5px 5px 0;
+    }
+
+
+    .detail-card h2,
+    .detail-card p {
+        color: #3d1f00;
+    }
+
+
+    .buy-button {
+        display: block;
+        padding: 8px 16px;
+        background-color: #8b5a2b;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .upd-button {
+        display: inline-block;
+        padding: 8px 16px;
+        width: 200px;
+        background-color: #8b5a2b;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+
+    .detail-card p {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #ffcead;
+    }
+    a:hover
+    {
+        text-decoration: none;
+        color: white;
+    }
+</style>
+
+<body>
+    <h1>Candy Details</h1>
+    {% if user.is_superuser%}
+        <a href={%url 'order_update' orders.id%} class="upd-button">Update order</a>
+        <a href={%url 'order_delete' orders.id%} class="upd-button">Close order</a>
+    {% endif %}
+    <div class="detail-card">
+        <div class="details">
+            <h2>{{ orders.status }}</h2>
+            <p>Number: {{ orders.phone_num }}</p>
+            <p>User: {{ orders.username }}</p>
+            <p>Adress: {{ orders.adress }}</p>
+            <p>Product: {{ orders.product }}</p>
+        </div>
+    </div>
+</body>
+{% endblock %}

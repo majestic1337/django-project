@@ -1,0 +1,59 @@
+<!-- candy_form.html -->
+{% extends 'main/layout.html' %}
+{%  load static %}
+{% block title %}
+    Add Candy
+{% endblock %}
+
+{% block content %}
+    <style>
+            body {
+            background-color: #f5dede;
+            font-family: Arial, sans-serif;
+            color: #3d1f00;
+            background-image: url("{% static 'main/img/IMG_0094.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            color: #eb8c8c;
+        }
+
+        form {
+            width: 50%;
+            margin-left: 20px;
+            padding: 20px;
+            background-color: #ecbdae;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"], input[type="number"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #e68a8a;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #eb5959;
+        }
+</style>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+    </form>
+{% endblock %}
